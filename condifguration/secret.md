@@ -53,9 +53,9 @@ spec:
       image: sql
       ports:
         - containerPort: 443
-    envFrom:
+      envFrom:
       - secretRef:
-            name: app-secret # same name with secret name
+              name: app-secret # same name with secret name
 ```
 
 ### Single Env
@@ -73,12 +73,12 @@ spec:
       image: sql
       ports:
         - containerPort: 443
-    env:
-      - name: DB_HOST
-        valueFrom:
-            secretKeyRef:
-              name: app-secret # same name with secret name
-              key: DB_HOST
+      env:
+        - name: DB_HOST
+          valueFrom:
+              secretKeyRef:
+                name: app-secret # same name with secret name
+                key: DB_HOST
 ```
 
 ### Volume
