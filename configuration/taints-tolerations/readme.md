@@ -87,14 +87,6 @@ kubectl taint nodes node1 key=value:NoSchedule-
 
 เครื่องหมาย `-` ที่ท้ายคำสั่งใช้ในการลบ taint ออกจาก Node นั้นๆ
 
-หากคุณต้องการลบ taint ทั้งหมดจาก Node คุณสามารถใช้คำสั่ง:
-
-```bash
-kubectl taint nodes <node-name> --all
-```
-
-วิธีนี้จะลบ taint ทั้งหมดที่อยู่ใน Node ที่ระบุออกไปทั้งหมด.
-
 คำสั่ง
 
 ```bash
