@@ -1,0 +1,12 @@
+# Create a role that allows a user to get, create, and update pods.
+# in the "dev" namespace.
+# This role does not specify resource names, so it applies to all pods in the namespace.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: 
+    name: developer
+    namespace: dev
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "create", "update"]
