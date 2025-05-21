@@ -1,0 +1,13 @@
+# ClusterRole with view permissions
+# This ClusterRole allows read-only access to all resources in the cluster.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata: 
+    name: cluster-editor
+rules:
+- apiGroups: [""]
+  resources: ["*"]
+  verbs: ["get", "list", "watch", "logs", "create", "update", "delete"]
+- apiGroups: ["apps"]
+  resources: ["*"]
+  verbs: ["get", "list", "watch", "logs", "create", "update", "delete"]
