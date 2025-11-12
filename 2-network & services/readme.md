@@ -38,7 +38,7 @@
   spec:
     type: NodePort
     selector:
-      app: my-app
+      app: web
     ports:
       - protocol: TCP
         port: 80

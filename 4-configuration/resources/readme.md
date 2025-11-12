@@ -2,6 +2,23 @@
 
 ## Limit Range
 
+```yaml
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-range-example
+  namespace: dev
+spec:
+  limits:
+  - default:
+      cpu: "500m"
+      memory: "256Mi"
+    defaultRequest:
+      cpu: "200m"
+      memory: "128Mi"
+    type: Container
+```
+
 limit-range-cpu.yaml
 
 ```yaml
@@ -103,18 +120,20 @@ Kubernetes ใช้ **Scheduler** ในการจัดการและจ
 Kubernetes ยังมีคุณสมบัติ **Resource Quotas** ที่ช่วยในการจำกัดการใช้ทรัพยากรใน namespace หนึ่ง ๆ เช่น จำนวน Pods, จำนวน CPU หรือ Memory ที่สามารถใช้งานได้ใน namespace นั้น ๆ
 
 ### ตัวอย่าง Resource Quotas:
+
 ```yaml
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: my-quota
+  name: dev-quota
+  namespace: dev
 spec:
   hard:
-    requests.cpu: "4"
-    requests.memory: "8Gi"
-    limits.cpu: "10"
+    requests.cpu: "4"       # รวม request CPU ทั้ง namespace ไม่เกิน 4 core
+    requests.memory: "8Gi"  # รวม request Memory ไม่เกิน 8Gi
+    limits.cpu: "8"
     limits.memory: "16Gi"
-    count/pods: "10"
+    pods: "10"              # จำกัด Pod รวมไม่เกิน 10 ตัว
 ```
 
 ### สรุป:
