@@ -130,3 +130,28 @@ k9s
 - **Benchmarks**: k9s มี tool ยิง load test ง่ายๆ ในตัว (hey) แต่ต้องระวังการใช้บน Production
 
 ดูข้อมูลเพิ่มเติมและ Shortcut ทั้งหมดได้ที่ [K9s Repository](https://github.com/derailed/k9s)
+
+---
+
+## 6. การปรับแต่งหน้าตา (Customization)
+
+เราสามารถเปลี่ยนสีและ Theme ของ k9s ได้ผ่านไฟล์ **Skin** ครับ
+
+### วิธีเปลี่ยน Theme (Skins)
+
+1. **หาไฟล์ Config**:
+   - **macOS / Linux**: อยู่ที่ `~/.config/k9s/config.yml`
+   - **Windows**: อยู่ที่ `%LOCALAPPDATA%\k9s\config.yml`
+
+2. **เลือก Skin**:
+   ไปดูตัวอย่าง Theme สวยๆ ได้ที่ [K9s Skins Gallery](https://github.com/derailed/k9s/tree/master/skins) (เช่น Dracula, Nord, OneDark)
+
+3. **ติดตั้ง**:
+   - สร้างโฟลเดอร์ `skins` ใน `~/.config/k9s/`
+   - ดาวน์โหลดไฟล์ `.yml` ของ theme ที่ชอบไปใส่ในโฟลเดอร์นั้น (เช่น `dracula.yml`)
+   - แก้ไขไฟล์ `config.yml` ของ k9s ให้ชี้ไปที่ skin นั้น:
+     ```yaml
+     k9s:
+       ui:
+         skin: dracula  # ไม่ต้องใส่นามสกุล .yml
+     ```
